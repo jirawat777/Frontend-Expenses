@@ -1,18 +1,28 @@
 import './index.scss'
 import React, { useState } from 'react'
-import Box from '@mui/material/Box'
-import TextField from '@mui/material/TextField'
-import Button from '@mui/material/Button'
-import { useSelector, useDispatch } from 'react-redux'
-import CircularProgress from '@mui/material/CircularProgress'
-import Swal from 'sweetalert2'
-
+import Stack from '@mui/material/Stack'
+import Header from '../../components/base/Header'
+import ButtonCustom from '../../components/atoms/ButtonCustom'
+import SearchBar from '../../components/base/SearchBar'
+import Divider from '@mui/material/Divider'
 function ExpensesPage () {
-  const profile = useSelector(state => state.auth?.profile)
-  const [Username, setUsername] = useState('')
-  const [Password, setPassword] = useState('')
-  const dispatch = useDispatch()
-  return <div> 12345 </div>
+  return (
+    <div className='display-expenses'>
+      <Header icon='fas fa-list-alt' title='รายรับรายจ่าย' />
+      <div className='box-button'>
+        <div className='btn-group-expenses'>
+          <ButtonCustom
+            title='เพิ่มรายการ'
+            icon='fas fa-plus'
+            color='primary'
+          />
+        </div>
+      </div>
+      <div className='box-search'>
+        <SearchBar />
+      </div>
+    </div>
+  )
 }
 
 export default ExpensesPage

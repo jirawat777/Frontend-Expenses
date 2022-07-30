@@ -1,5 +1,17 @@
 .sidebar{
     width: 250px;
     height: 100vh;
-    background-color: gray;
+    background: #131b28;
+    position: relative;
+}
+.btn-position{
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 15px;
+    width: 100%;
+    padding: 10px;
+}
+.manu-custom{
+    font-family: 'IBM Plex Sans Thai', sans-serif !important;
+    color: white !important;
 }

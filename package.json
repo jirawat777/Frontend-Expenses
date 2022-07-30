@@ -12,6 +12,7 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-guards": "^1.0.2",
     "sweetalert": "^2.1.2",
     "sweetalert2": "^11.4.24"
   },

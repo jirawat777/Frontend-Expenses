@@ -38,17 +38,12 @@ export const auth = {
   },
   effects: dispatch => ({
     async login (payload) {
-      // const res = await authService.login(payload)
       const header = {
         username: payload.username,
         password: payload?.password
       }
-      const response = await axios.post(
-        `${VITE_API_HOST}/auth/api/token/`,
-        header
-      )
+      const response = await axios.post(`${VITE_API_HOST}/auth/api/token/`,header)
       const { access, refresh } = response.data
-
       dispatch.auth.SET_PROFILE(payload?.username)
       dispatch.auth.IS_LOGIN(true)
       dispatch.auth.SET_AUTH_STATE({
@@ -59,7 +54,7 @@ export const auth = {
     },
     async logout () {
       dispatch.auth.LOGOUT()
-
+      window.location.href = '/'
     }
   }),
   selectors: slice => ({
