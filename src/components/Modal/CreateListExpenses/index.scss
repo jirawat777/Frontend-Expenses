@@ -1,1 +1,9 @@
 @import "rsuite/dist/rsuite.css";
+.modal-create {
+    font-family: "IBM Plex Sans Thai", sans-serif !important;
+}
+.textfield-round {
+    .MuiInputBase-input{
+        border-radius: 100px 100px 100px 100px !important;
+    }
+}
