@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import './index.scss'
 
 function ButtonCustom (props) {
-  const { color, action, title, icon, size } = props
+  const { color, action, title, icon, size, font } = props
   const dispatch = useDispatch()
 
   const theme = createTheme({
@@ -23,7 +23,7 @@ function ButtonCustom (props) {
     <ThemeProvider theme={theme}>
       <Fab
         variant='extended'
-        color={color}
+        style={{ backgroundColor: color, color: font }}
         className='btn-custom'
         onClick={() => CheckAction()}
         size={size}

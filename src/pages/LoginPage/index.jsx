@@ -64,7 +64,8 @@ function LoginPage () {
                 </div>
                 <div className='form-group' onClick={() => Login()}>
                   <ButtonCustom
-                    color='primary'
+                    color='#ff6618'
+                    font='#fff'
                     title='เข้าสู่ระบบ'
                     icon={'fas fa-sign-in-alt'}
                   >
