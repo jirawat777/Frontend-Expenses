@@ -1,38 +1,83 @@
-import './index.scss';
+import './index.scss'
 import React, { useState } from 'react'
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
 import { useSelector, useDispatch } from 'react-redux'
+import Swal from 'sweetalert2'
+import ButtonCustom from '../../components/atoms/ButtonCustom'
 
-function LoginPage() {
-    const profile = useSelector((state) => state.auth?.profile)
-    const [Username, setUsername] = useState('')
-    const [Password, setPassword] = useState('')
-    const dispatch = useDispatch()
+function LoginPage () {
+  const [Username, setUsername] = useState('')
+  const [Password, setPassword] = useState('')
+  const dispatch = useDispatch()
 
-    const Login = () => {
-        dispatch.auth.login({ username: Username, password: Password })
+  const Login = async () => {
+    if (Username.length !== 0 && Password.length !== 0) {
+      Swal.showLoading()
+      try {
+        await dispatch.auth.login({
+          username: Username,
+          password: Password
+        })
+        Swal.close()
+        window.location.href = 'app/expenses'
+      } catch (error) {
+        Swal.fire({
+          icon: 'error',
+          title:  error?.response?.statusText,
+          text: error?.response?.data?.detail
+        })
+      }
     }
-    const Logout = () => {
-        dispatch.auth.logout()
-    }
-    return (
-        <Box
-            component="form"
-            sx={{
-                '& > :not(style)': { m: 1, width: '25ch' },
-            }}
-            noValidate
-            autoComplete="off"
-        >
-            {profile}
-            <TextField id="outlined-basic" type="text" label="Username" variant="outlined" onChange={(e) => setUsername(e.target.value)} />
-            <TextField id="outlined-basic" label="Password" variant="outlined" onChange={(e) => setPassword(e.target.value)} />
-            <Button variant="contained" onClick={() => Login()}>Login</Button>
-            <Button variant="contained" onClick={() => Logout()}>Logout</Button>
-        </Box>
-    )
+  }
+  return (
+    <section className='ftco-section'>
+      <div className='container'>
+        <div className='row justify-content-center'>
+          <div className='col-md-6 text-center mb-5'>
+            <span className='heading-section'>ระบบรายรับรายจ่าย</span>
+          </div>
+        </div>
+        <div className='row justify-content-center'>
+          <div className='col-md-6 col-lg-4'>
+            <div className='login-wrap p-0'>
+                <div className='form-group'>
+                  <input
+                    type='text'
+                    className='form-control'
+                    placeholder='ชื่อผู้ใช้'
+                    required
+                    onChange={e => setUsername(e.target.value)}
+                  />
+                </div>
+                <div className='form-group'>
+                  <input
+                    id='password-field'
+                    type='password'
+                    className='form-control'
+                    placeholder='รหัสผ่าน'
+                    required
+                    onChange={e => setPassword(e.target.value)}
+                  />
+                  <span
+                    toggle='#password-field'
+                    className='fa fa-fw fa-eye field-icon toggle-password'
+                  ></span>
+                </div>
+                <div className='form-group' onClick={() => Login()}>
+                  <ButtonCustom
+                    color='#ff6618'
+                    font='#fff'
+                    title='เข้าสู่ระบบ'
+                    icon={'fas fa-sign-in-alt'}
+                  >
+                    เข้าสู่ระบบ
+                  </ButtonCustom>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
 }
 
 export default LoginPage
