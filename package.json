@@ -11,9 +11,13 @@
   },
   "dependencies": {
     "@mui/styles": "^5.9.3",
+    "@mui/x-date-pickers": "^5.0.0-beta.5",
     "add": "^2.0.6",
+    "moment": "^2.29.4",
+    "moment-jalaali": "^0.9.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-moment": "^1.1.2",
     "react-router-guards": "^1.0.2",
     "rsuite": "^5.16.3",
     "sweetalert": "^2.1.2",

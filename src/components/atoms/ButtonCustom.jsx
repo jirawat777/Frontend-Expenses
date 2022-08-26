@@ -5,7 +5,7 @@ import Fab from '@mui/material/Fab'
 import { useSelector, useDispatch } from 'react-redux'
 import './index.scss'
 
-function ButtonCustom (props) {
+function ButtonCustom(props) {
   const { color, action, title, icon, size, font } = props
   const dispatch = useDispatch()
 

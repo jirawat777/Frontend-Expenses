@@ -1,9 +1,24 @@
 @import "rsuite/dist/rsuite.css";
 .modal-create {
     font-family: "IBM Plex Sans Thai", sans-serif !important;
+    margin-top: 10em;
+    width: 700px;
 }
-.textfield-round {
-    .MuiInputBase-input{
-        border-radius: 100px 100px 100px 100px !important;
-    }
+.tooltip-custom {
+    font-family: "IBM Plex Sans Thai", sans-serif !important;
+}
+.area-Custom {
+    width: 558px;
+}
+.content-modal {
+    padding: 5px;
+}
+
+.datePicker-custom {
+    width: 150px;
+    box-shadow: none !important;
+    outline: none !important;
+}
+.datePicker-custom:focus {
+    border-color: #1ff675 !important;
 }
